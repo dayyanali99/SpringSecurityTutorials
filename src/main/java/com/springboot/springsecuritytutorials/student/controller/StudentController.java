@@ -1,5 +1,6 @@
-package com.springboot.springsecuritytutorials.student;
+package com.springboot.springsecuritytutorials.student.controller;
 
+import com.springboot.springsecuritytutorials.student.Student;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/students")
+@RequestMapping("api/v1/students")
 public class StudentController
 {
 
@@ -22,7 +23,7 @@ public class StudentController
     public Student getStudent(@PathVariable("studentId") Integer studentId)
     {
         return STUDENTS.stream()
-                .filter(student -> studentId.equals(student.studentId()))
+                .filter(student -> studentId.equals(student.getStudentId()))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("Student " + studentId + " does not exists"));
     }
