@@ -1,5 +1,17 @@
 package com.springboot.springsecuritytutorials.student;
 
-public record Student(Integer studentId, String studentName)
+
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student
 {
+
+    private Integer studentId;
+    private String studentName;
 }
